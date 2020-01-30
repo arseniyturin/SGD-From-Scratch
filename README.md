@@ -1,8 +1,8 @@
 # Stochastic Gradient Descent From Scratch
 
-This notebook illustrates the nature of the Stochastic Gradient Descent (SGD) and walk throught all the necessary steps to create SGD from scratch in Python. Gradient Descent is an essential part of many machine learning algorithms, including neural networks. To understand how it works you will need some basic math and logical thinking. Though stronger math background would be preferrable to understand derivatives, I will try to explain them as simple as possible.
+This notebook illustrates the nature of the Stochastic Gradient Descent (SGD) and walks through all the necessary steps to create SGD from scratch in Python. Gradient Descent is an essential part of many machine learning algorithms, including neural networks. To understand how it works you will need some basic math and logical thinking. Though a stronger math background would be preferable to understand derivatives, I will try to explain them as simple as possible.
 
-We will work with California housing dataset and perform linear regression to predict apartment price based on the median income in block. We will start from the simple linear regression and gradually finish with Stochastic Gradient Descent. So lets get started.
+We will work with the California housing dataset and perform a linear regression to predict apartment prices based on the median income in the block. We will start from the simple linear regression and gradually finish with Stochastic Gradient Descent. So let's get started.
 
 ## Importing Libraries
 
@@ -517,8 +517,8 @@ Result of our model is the regression line. Just by looking at the graph we can 
 
 ### Abstract
 
-The idea behind gradient descent is simple - by gradually tuning parameters, such as slope (`m`) and the intercept (`b`) in our regression function `y = mx + b`, we minimize loss. 
-By loss we usually mean some kind of a function that tells us how far off our model predicted result. For regression problems we often use `mean squared error` (MSE) loss function. If we use gradient descent for the classification problem, we will have different set of parameters to tune.
+The idea behind gradient descent is simple - by gradually tuning parameters, such as slope (`m`) and the intercept (`b`) in our regression function `y = mx + b`, we minimize cost. 
+By cost, we usually mean some kind of a function that tells us how far off our model predicted result. For regression problems we often use `mean squared error` (MSE) cost function. If we use gradient descent for the classification problem, we will have a different set of parameters to tune.
 
 ### $$ MSE = \frac{1}{n}\sum_{i=1}^{n} (y_i - \hat{y_i})^2 \quad \textrm{where} \quad \hat{y_i} = mx_i + b $$
 
@@ -526,7 +526,7 @@ Now we have to figure out how to tweak parameters `m` and `b` to reduce MSE.
 
 ### Partial Derivatives
 
-We use partical derivatives to find how each individual parameter affect MSE, so thats where word _partial_ comes from. In simple words we take derivative with respect to `m` and `b` **separately**. Take a look at the formula below. It looks almost exactly the same as MSE, but this time we added f(m, b) to it. It essentially changes nothing, except now we can plug `m` and `b` numbers into it and calculate the result. 
+We use partial derivatives to find how each individual parameter affects MSE, so that's where word _partial_ comes from. In simple words, we take the derivative with respect to `m` and `b` **separately**. Take a look at the formula below. It looks almost exactly the same as MSE, but this time we added f(m, b) to it. It essentially changes nothing, except now we can plug `m` and `b` numbers into it and calculate the result.
 
 ### $$𝑓(𝑚,𝑏)= \frac{1}{n}\sum_{i=1}^{n}(y_i - (mx_i+b))^2$$
 
@@ -535,8 +535,6 @@ Now we have to figure out how to take partial derivative with respect to paramet
 ### Partical Derivative With Respect to `m`
 
 With respect to `m` means we derive parameter `m` and basically ignore what is going on with `b`, or we can say its 0. To derive with respect to `m` we will use chain rule.
-
-$$ \frac{\partial f}{\partial m} = (y - (mx + b))^2 $$
 
 Chain rule is when one function inside another. If you're new to this, you'd be surprised that $()^2$ is outside function, and $y-(mx+b)$ is inside. So, the chain rule says that we should take a derivative of outside function, multiply it by inside function and then multiply by derivative of the inside function.
 
@@ -674,7 +672,7 @@ m, b, log, mse = SGD(X, y, lr=0.3, epoch=200, batch_size=1)
 y_pred = m*X + b
 
 print("MSE:",mean_squared_error(y, y_pred))
-plot_regression(X, y, y_pred, log=log)
+plot_regression(X, y, y_pred, log=log, title="Linear Regression with SGD")
 
 plt.figure(figsize=(16,3))
 plt.rcParams['figure.dpi'] = 227
@@ -685,7 +683,7 @@ plt.ylabel('MSE', fontSize=11)
 plt.show()
 ```
 
-    MSE: 0.024719844455275145
+    MSE: 0.02515584109064795
 
 
 
@@ -705,7 +703,7 @@ We can observe how regression line went up and down to find right parameters and
 %timeit SGD(X, y, lr=0.01, epoch=1000, batch_size=1)
 ```
 
-    2.41 s ± 81.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    2.35 s ± 42.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 
@@ -713,16 +711,11 @@ We can observe how regression line went up and down to find right parameters and
 %timeit gradient_descent(X, y, lr=0.01, epoch=1000)
 ```
 
-    4.51 s ± 41.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    4.39 s ± 41.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 ## Conclusion
 
 1. SGD is twice as fast as Gradient Descent (also called Batch Gradient Descent)
-2. On sparse data we can increase batch size to speedup learning process. It's not pure form of SGD, but we can call it a mini-batch SGD
-3. Smaller learning rate helps to prevent overfitting, but can be adjusted accordingly
-
-
-```python
-
-```
+2. On sparse data, we can increase the batch size to speed up learning process. It's not a pure form of SGD, but we can call it a mini-batch SGD
+3. Smaller learning rate helps to prevent overfitting but can be adjusted accordingly
