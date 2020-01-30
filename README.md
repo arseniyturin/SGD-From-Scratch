@@ -416,7 +416,7 @@ plt.figure(figsize=(16,6))
 plt.rcParams['figure.dpi'] = 227
 plt.style.use('seaborn-whitegrid')
 plt.scatter(X, y, label='Data', c='#388fd8', s=6)
-plt.title('Positive Correlation Between Number of Bathrooms and Bedrooms', fontSize=15)
+plt.title('Positive Correlation Between Income and House Price', fontSize=15)
 plt.xlabel('Income', fontSize=12)
 plt.ylabel('House Price', fontSize=12)
 plt.legend(frameon=True, loc=1, fontsize=10, borderpad=.6)
@@ -501,7 +501,7 @@ y_pred = linreg.predict()
 
 ```python
 print("MSE:",mean_squared_error(y, y_pred))
-plot_regression(X, y, y_pred, title="Regression Line Approximating Bedrooms to Bathrooms Ratio")
+plot_regression(X, y, y_pred, title="Linear Regression")
 ```
 
     MSE: 0.023408891983089833
