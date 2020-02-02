@@ -8,8 +8,6 @@ We will work with the California housing dataset and perform a linear regression
 
 
 ```python
-from numpy import mean, array, full
-from numpy.random import choice
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -36,110 +34,6 @@ Target = pd.DataFrame(housing_data.target, columns=['Target'])
 ```python
 df = Features.join(Target)
 ```
-
-
-```python
-df.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>MedInc</th>
-      <th>HouseAge</th>
-      <th>AveRooms</th>
-      <th>AveBedrms</th>
-      <th>Population</th>
-      <th>AveOccup</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>8.3252</td>
-      <td>41.0</td>
-      <td>6.984127</td>
-      <td>1.023810</td>
-      <td>322.0</td>
-      <td>2.555556</td>
-      <td>37.88</td>
-      <td>-122.23</td>
-      <td>4.526</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>8.3014</td>
-      <td>21.0</td>
-      <td>6.238137</td>
-      <td>0.971880</td>
-      <td>2401.0</td>
-      <td>2.109842</td>
-      <td>37.86</td>
-      <td>-122.22</td>
-      <td>3.585</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>7.2574</td>
-      <td>52.0</td>
-      <td>8.288136</td>
-      <td>1.073446</td>
-      <td>496.0</td>
-      <td>2.802260</td>
-      <td>37.85</td>
-      <td>-122.24</td>
-      <td>3.521</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>5.6431</td>
-      <td>52.0</td>
-      <td>5.817352</td>
-      <td>1.073059</td>
-      <td>558.0</td>
-      <td>2.547945</td>
-      <td>37.85</td>
-      <td>-122.25</td>
-      <td>3.413</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>3.8462</td>
-      <td>52.0</td>
-      <td>6.281853</td>
-      <td>1.081081</td>
-      <td>565.0</td>
-      <td>2.181467</td>
-      <td>37.85</td>
-      <td>-122.25</td>
-      <td>3.422</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 Features as `MedInc` and `Target` were scaled to some degree.
 
@@ -434,21 +328,19 @@ Data is quite sparse, but we can still observe some linearity.
 
 Simple linear regression can be described by only two parameters: slope `m` and intercept `b`, where `x` is our **median income**. Lets take a look at the formulas below:
 
-# $$\hat{y} = mx + b$$
-
-### $$m = \frac{\overline{x}\overline{y}-\overline{xy}}{(\overline{x})^2 - \overline{x^2}} \quad \textrm{and} \quad  b = y-mx$$
+![png](images/f1.png)
 
 If we want to add some other features, like size of the apartment, our formula would look like this: $\hat{y} = m_1x_1 + m_2x_2 + b$, where $m_1$ and $m_2$ are slopes for each feature $x_1$ and $x_2$. In this case we would call it multiple linear regression, but we could no longer use formulas above.
 
 
 ```python
-class LinearRegression:
+class SimpleLinearRegression:
         
     def fit(self, X, y):
         self.X = X
         self.y = y
-        self.m = ((mean(X) * mean(y) - mean(X*y)) / ((mean(X)**2) - mean(X**2)))
-        self.b = mean(y) - self.m * mean(X)
+        self.m = ((np.mean(X) * np.mean(y) - np.mean(X*y)) / ((np.mean(X)**2) - np.mean(X**2)))
+        self.b = np.mean(y) - self.m * np.mean(X)
     
     def coeffs(self):
         return self.m, self.b
@@ -458,7 +350,7 @@ class LinearRegression:
         return self.y_pred
     
     def r_squared(self):
-        self.y_mean = full((len(self.y)), mean(self.y))
+        self.y_mean = np.full((len(self.y)), mean(self.y))
         err_reg = sum((self.y - self.y_pred)**2)
         err_y_mean = sum((self.y - self.y_mean)**2)
         return (1 - (err_reg/err_y_mean))
@@ -485,17 +377,23 @@ def plot_regression(X, y, y_pred, log=None, title="Linear Regression"):
 
 
 ```python
-linreg = LinearRegression()
+X = df.MedInc
+y = df.Target
 ```
 
 
 ```python
-linreg.fit(X, y)
+lr = SimpleLinearRegression()
 ```
 
 
 ```python
-y_pred = linreg.predict()
+lr.fit(X, y)
+```
+
+
+```python
+y_pred = lr.predict()
 ```
 
 
@@ -504,7 +402,7 @@ print("MSE:",mean_squared_error(y, y_pred))
 plot_regression(X, y, y_pred, title="Linear Regression")
 ```
 
-    MSE: 0.023408891983089833
+    MSE: 0.5485962279736201
 
 
 
@@ -513,14 +411,75 @@ plot_regression(X, y, y_pred, title="Linear Regression")
 
 Result of our model is the regression line. Just by looking at the graph we can tell that data points go well above and beyond our line, making predictions approximate.
 
+## Multiple Linear Regression with Least Squares
+
+Similar to `from sklearn.linear_model import LinearRegression`, we can calculate coefficients with Least Squares method. Numpy can calculate this formula almost instantly (of course depends on the amount of data) and precise.
+
+![png](images/f2.png)
+
+
+```python
+X = df.drop('Target', axis=1) # matrix A, or all the features
+y = df.Target
+```
+
+
+```python
+class MultipleLinearRegression:
+    '''
+    Multiple Linear Regression with Least Squares    
+    '''    
+    def fit(self, X, y):
+        X = np.array(X)
+        y = np.array(y)
+        self.coeffs = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+        
+    def predict(self, X):
+        X = np.array(X)
+        result = np.zeros(len(X))
+        for i in range(X.shape[1]):
+            result += X[:, i] * self.coeffs[i]
+        return result
+    
+    def coeffs(self):
+        return self.coeffs
+```
+
+
+```python
+mlp = MultipleLinearRegression()
+```
+
+
+```python
+mlp.fit(X, y)
+```
+
+
+```python
+y_pred = mlp.predict(X)
+```
+
+
+```python
+mean_squared_error(y, y_pred)
+```
+
+
+
+
+    0.46636186533484425
+
+
+
 # Gradient Descent
 
 ### Abstract
 
-The idea behind gradient descent is simple - by gradually tuning parameters, such as slope (`m`) and the intercept (`b`) in our regression function `y = mx + b`, we minimize cost. 
+The idea behind gradient descent is simple - by gradually tuning parameters, such as slope (`m`) and the intercept (`b`) in our regression function `y = mx + b`, we minimize cost. 
 By cost, we usually mean some kind of a function that tells us how far off our model predicted result. For regression problems we often use `mean squared error` (MSE) cost function. If we use gradient descent for the classification problem, we will have a different set of parameters to tune.
 
-### $$ MSE = \frac{1}{n}\sum_{i=1}^{n} (y_i - \hat{y_i})^2 \quad \textrm{where} \quad \hat{y_i} = mx_i + b $$
+![png](images/f3.png)
 
 Now we have to figure out how to tweak parameters `m` and `b` to reduce MSE.
 
@@ -528,26 +487,30 @@ Now we have to figure out how to tweak parameters `m` and `b` to reduce MSE.
 
 We use partial derivatives to find how each individual parameter affects MSE, so that's where word _partial_ comes from. In simple words, we take the derivative with respect to `m` and `b` **separately**. Take a look at the formula below. It looks almost exactly the same as MSE, but this time we added f(m, b) to it. It essentially changes nothing, except now we can plug `m` and `b` numbers into it and calculate the result.
 
-### $$𝑓(𝑚,𝑏)= \frac{1}{n}\sum_{i=1}^{n}(y_i - (mx_i+b))^2$$
+![png](images/f4.png)
 
-Now we have to figure out how to take partial derivative with respect to parameter `m` and `b`. We can ignore sum and what comes before that and focus only on $y - (mx + b)^2$.
+This formula (or better say function) is better representation for further calculations of partial derivatives. We can ignore sum for now and what comes before that and focus only on $y - (mx + b)^2$.
 
 ### Partical Derivative With Respect to `m`
 
 With respect to `m` means we derive parameter `m` and basically ignore what is going on with `b`, or we can say its 0. To derive with respect to `m` we will use chain rule.
 
-Chain rule is when one function inside another. If you're new to this, you'd be surprised that $()^2$ is outside function, and $y-(mx+b)$ is inside. So, the chain rule says that we should take a derivative of outside function, multiply it by inside function and then multiply by derivative of the inside function.
+Chain rule applies when one function sits inside of another. If you're new to this, you'd be surprised that $()^2$ is outside function, and $y-(\boldsymbol{m}x+b)$ sits inside it. So, the chain rule says that we should take a derivative of outside function, multiply it by inside function and then multiply by derivative of the inside function. Lets write these steps down:
 
- 1. $()^2$ becomes $2()$, same as $x^2$ becomes $2x$
- 2. $y - (mx + b)$ stays the same
- 3. $y - (mx + b)$ becomes $(0 - (x + 0))$ or $-x$, because **_y_** and **_b_** are constants, they become 0, and derivative of **_mx_** is **_x_**
+ 1. Derivative of $()^2$ is $2()$, same as $x^2$ becomes $2x$
+ 2. We do nothing with $y - (mx + b)$, so it stays the same
+ 3. Derivative of $y - (mx + b)$ with respect to **_m_** is $(0 - (x + 0))$ or $-x$, because **_y_** and **_b_** are constants, they become 0, and derivative of **_mx_** is **_x_**
  
 Multiply all parts we get following: $2 * (y - (mx+b)) * -x$. 
-Looks nicer if we move -x to the left: $-2x *(y-(mx+b))$
+Looks nicer if we move -x to the left: $-2x *(y-(mx+b))$. There we have it. The final version of our derivative is the following:
 
-### $$\frac{\partial f}{\partial m} = \frac{1}{n}\sum_{i=1}^{n}-2x_i(y_i - (mx_i+b))$$
+![png](images/f5.png)
+
+Here, $\frac{df}{dm}$ means we find partial derivative of function f (we mentioned it earlier) with respect to m. We plug our derivative to the summation and we're done.
 
 ### Partical Derivative With Respect to `b`
+
+Same rules apply to the derivative with respect to b.
 
 1. $()^2$ becomes $2()$, same as $x^2$ becomes $2x$
 2. $y - (mx + b)$ stays the same
@@ -555,7 +518,7 @@ Looks nicer if we move -x to the left: $-2x *(y-(mx+b))$
 
 Multiply all the parts together and we get $-2(y-(mx+b))$
 
-### $$\frac{\partial f}{\partial b} = \frac{1}{n}\sum_{i=1}^{n}-2(y_i - (mx_i+b))$$
+![png](images/f6.png)
 
 The hardest part is over, now we can code our functions in Python.
 
@@ -574,21 +537,17 @@ def gradient_descent(X, y, lr=0.05, epoch=10):
     Gradient Descent for a single feature
     '''
     
-    m, b = 0, 0 # parameters
+    m, b = 0.2, 0.2 # parameters
     log, mse = [], [] # lists to store learning process
     N = len(X) # number of samples
     
     for _ in range(epoch):
                 
-        # Derivative for m and b
-
-        f = m*X + b
-        m_derivative = -2 * sum(X * (y - f)) / N
-        b_derivative = -2 * sum(y - f) / N
+        f = y - (m*X + b)
     
         # Updating m and b
-        m -= lr * m_derivative
-        b -= lr * b_derivative
+        m -= lr * (-2 * X.dot(f).sum() / N)
+        b -= lr * (-2 * f.sum() / N)
         
         log.append((m, b))
         mse.append(mean_squared_error(y, (m*X + b)))        
@@ -600,7 +559,10 @@ def gradient_descent(X, y, lr=0.05, epoch=10):
 
 
 ```python
-m, b, log, mse = gradient_descent(X, y, lr=0.3, epoch=200)
+X = df.MedInc
+y = df.Target
+
+m, b, log, mse = gradient_descent(X, y, lr=0.01, epoch=100)
 
 y_pred = m*X + b
 
@@ -616,7 +578,7 @@ plt.ylabel('MSE')
 plt.show()
 ```
 
-    MSE: 0.024403781659275047
+    MSE: 0.5518154158607774
 
 
 
@@ -639,25 +601,22 @@ def SGD(X, y, lr=0.05, epoch=10, batch_size=1):
     Stochastic Gradient Descent for a single feature
     '''
     
-    m, b = 0, 0 # initial parameters
+    m, b = 0.5, 0.5 # initial parameters
     log, mse = [], [] # lists to store learning process
     
     for _ in range(epoch):
         
-        sample = choice(X.index, batch_size) # random sample
+        indexes = np.random.randint(0, len(X), batch_size) # random sample
         
-        Xs = X.get(sample)
-        ys = y.get(sample)
+        Xs = np.take(X, indexes)
+        ys = np.take(y, indexes)
         N = len(Xs)
-        f = m*Xs + b
         
-        # Calculating slope for m and b by taking derivatives
-        m_derivative = -2 * sum(Xs * (ys - f)) / N
-        b_derivative = -2 * sum(ys - f) / N
+        f = ys - (m*Xs + b)
         
         # Updating parameters m and b
-        m -= lr * m_derivative 
-        b -= lr * b_derivative
+        m -= lr * (-2 * Xs.dot(f).sum() / N)
+        b -= lr * (-2 * f.sum() / N)
         
         log.append((m, b))
         mse.append(mean_squared_error(y, m*X+b))        
@@ -667,8 +626,11 @@ def SGD(X, y, lr=0.05, epoch=10, batch_size=1):
 
 
 ```python
-m, b, log, mse = SGD(X, y, lr=0.3, epoch=200, batch_size=1)
+m, b, log, mse = SGD(X, y, lr=0.01, epoch=100, batch_size=2)
+```
 
+
+```python
 y_pred = m*X + b
 
 print("MSE:",mean_squared_error(y, y_pred))
@@ -683,7 +645,7 @@ plt.ylabel('MSE', fontSize=11)
 plt.show()
 ```
 
-    MSE: 0.02515584109064795
+    MSE: 0.5504648912075815
 
 
 
@@ -700,10 +662,34 @@ We can observe how regression line went up and down to find right parameters and
 
 
 ```python
+X = df.MedInc
+y = df.Target
+```
+
+
+```python
+X = np.concatenate((X,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X,X))
+y = np.concatenate((y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y))
+```
+
+
+```python
+X.shape, y.shape
+```
+
+
+
+
+    ((334016,), (334016,))
+
+
+
+
+```python
 %timeit SGD(X, y, lr=0.01, epoch=1000, batch_size=1)
 ```
 
-    2.35 s ± 42.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    1.32 s ± 102 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 
@@ -711,7 +697,7 @@ We can observe how regression line went up and down to find right parameters and
 %timeit gradient_descent(X, y, lr=0.01, epoch=1000)
 ```
 
-    4.39 s ± 41.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    2.14 s ± 168 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 ## Conclusion
