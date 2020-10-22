@@ -491,7 +491,7 @@ We use partial derivatives to find how each individual parameter affects MSE, so
 
 This formula (or better say function) is better representation for further calculations of partial derivatives. We can ignore sum for now and what comes before that and focus only on $y - (mx + b)^2$.
 
-### Partical Derivative With Respect to `m`
+### Partial Derivative With Respect to `m`
 
 With respect to `m` means we derive parameter `m` and basically ignore what is going on with `b`, or we can say its 0. To derive with respect to `m` we will use chain rule.
 
@@ -508,7 +508,7 @@ Looks nicer if we move -x to the left: $-2x *(y-(mx+b))$. There we have it. The 
 
 Here, $\frac{df}{dm}$ means we find partial derivative of function f (we mentioned it earlier) with respect to m. We plug our derivative to the summation and we're done.
 
-### Partical Derivative With Respect to `b`
+### Partial Derivative With Respect to `b`
 
 Same rules apply to the derivative with respect to b.
 
