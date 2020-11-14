@@ -76,189 +76,112 @@ df.corr()
   </thead>
   <tbody>
     <tr>
-      <td>MedInc</td>
-      <td>1.000000</td>
-      <td>-0.119034</td>
-      <td>0.326895</td>
-      <td>-0.062040</td>
-      <td>0.004834</td>
-      <td>0.018766</td>
-      <td>-0.079809</td>
-      <td>-0.015176</td>
-      <td>0.688075</td>
-    </tr>
-    <tr>
-      <td>HouseAge</td>
-      <td>-0.119034</td>
-      <td>1.000000</td>
-      <td>-0.153277</td>
-      <td>-0.077747</td>
-      <td>-0.296244</td>
-      <td>0.013191</td>
-      <td>0.011173</td>
-      <td>-0.108197</td>
-      <td>0.105623</td>
-    </tr>
-    <tr>
-      <td>AveRooms</td>
-      <td>0.326895</td>
-      <td>-0.153277</td>
-      <td>1.000000</td>
-      <td>0.847621</td>
-      <td>-0.072213</td>
-      <td>-0.004852</td>
-      <td>0.106389</td>
-      <td>-0.027540</td>
-      <td>0.151948</td>
-    </tr>
-    <tr>
-      <td>AveBedrms</td>
-      <td>-0.062040</td>
-      <td>-0.077747</td>
-      <td>0.847621</td>
-      <td>1.000000</td>
-      <td>-0.066197</td>
-      <td>-0.006181</td>
-      <td>0.069721</td>
-      <td>0.013344</td>
-      <td>-0.046701</td>
-    </tr>
-    <tr>
-      <td>Population</td>
-      <td>0.004834</td>
-      <td>-0.296244</td>
-      <td>-0.072213</td>
-      <td>-0.066197</td>
-      <td>1.000000</td>
-      <td>0.069863</td>
-      <td>-0.108785</td>
-      <td>0.099773</td>
-      <td>-0.024650</td>
-    </tr>
-    <tr>
-      <td>AveOccup</td>
-      <td>0.018766</td>
-      <td>0.013191</td>
-      <td>-0.004852</td>
-      <td>-0.006181</td>
-      <td>0.069863</td>
-      <td>1.000000</td>
-      <td>0.002366</td>
-      <td>0.002476</td>
-      <td>-0.023737</td>
-    </tr>
-    <tr>
-      <td>Latitude</td>
-      <td>-0.079809</td>
-      <td>0.011173</td>
-      <td>0.106389</td>
-      <td>0.069721</td>
-      <td>-0.108785</td>
-      <td>0.002366</td>
-      <td>1.000000</td>
-      <td>-0.924664</td>
-      <td>-0.144160</td>
-    </tr>
-    <tr>
-      <td>Longitude</td>
-      <td>-0.015176</td>
-      <td>-0.108197</td>
-      <td>-0.027540</td>
-      <td>0.013344</td>
-      <td>0.099773</td>
-      <td>0.002476</td>
-      <td>-0.924664</td>
-      <td>1.000000</td>
-      <td>-0.045967</td>
-    </tr>
-    <tr>
-      <td>Target</td>
-      <td>0.688075</td>
-      <td>0.105623</td>
-      <td>0.151948</td>
-      <td>-0.046701</td>
-      <td>-0.024650</td>
-      <td>-0.023737</td>
-      <td>-0.144160</td>
-      <td>-0.045967</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-df[['MedInc', 'Target']].describe()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
       <th>MedInc</th>
+      <td>1.000000</td>
+      <td>-0.119034</td>
+      <td>0.326895</td>
+      <td>-0.062040</td>
+      <td>0.004834</td>
+      <td>0.018766</td>
+      <td>-0.079809</td>
+      <td>-0.015176</td>
+      <td>0.688075</td>
+    </tr>
+    <tr>
+      <th>HouseAge</th>
+      <td>-0.119034</td>
+      <td>1.000000</td>
+      <td>-0.153277</td>
+      <td>-0.077747</td>
+      <td>-0.296244</td>
+      <td>0.013191</td>
+      <td>0.011173</td>
+      <td>-0.108197</td>
+      <td>0.105623</td>
+    </tr>
+    <tr>
+      <th>AveRooms</th>
+      <td>0.326895</td>
+      <td>-0.153277</td>
+      <td>1.000000</td>
+      <td>0.847621</td>
+      <td>-0.072213</td>
+      <td>-0.004852</td>
+      <td>0.106389</td>
+      <td>-0.027540</td>
+      <td>0.151948</td>
+    </tr>
+    <tr>
+      <th>AveBedrms</th>
+      <td>-0.062040</td>
+      <td>-0.077747</td>
+      <td>0.847621</td>
+      <td>1.000000</td>
+      <td>-0.066197</td>
+      <td>-0.006181</td>
+      <td>0.069721</td>
+      <td>0.013344</td>
+      <td>-0.046701</td>
+    </tr>
+    <tr>
+      <th>Population</th>
+      <td>0.004834</td>
+      <td>-0.296244</td>
+      <td>-0.072213</td>
+      <td>-0.066197</td>
+      <td>1.000000</td>
+      <td>0.069863</td>
+      <td>-0.108785</td>
+      <td>0.099773</td>
+      <td>-0.024650</td>
+    </tr>
+    <tr>
+      <th>AveOccup</th>
+      <td>0.018766</td>
+      <td>0.013191</td>
+      <td>-0.004852</td>
+      <td>-0.006181</td>
+      <td>0.069863</td>
+      <td>1.000000</td>
+      <td>0.002366</td>
+      <td>0.002476</td>
+      <td>-0.023737</td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>-0.079809</td>
+      <td>0.011173</td>
+      <td>0.106389</td>
+      <td>0.069721</td>
+      <td>-0.108785</td>
+      <td>0.002366</td>
+      <td>1.000000</td>
+      <td>-0.924664</td>
+      <td>-0.144160</td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td>-0.015176</td>
+      <td>-0.108197</td>
+      <td>-0.027540</td>
+      <td>0.013344</td>
+      <td>0.099773</td>
+      <td>0.002476</td>
+      <td>-0.924664</td>
+      <td>1.000000</td>
+      <td>-0.045967</td>
+    </tr>
+    <tr>
       <th>Target</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>count</td>
-      <td>20640.000000</td>
-      <td>20640.000000</td>
-    </tr>
-    <tr>
-      <td>mean</td>
-      <td>3.870671</td>
-      <td>2.068558</td>
-    </tr>
-    <tr>
-      <td>std</td>
-      <td>1.899822</td>
-      <td>1.153956</td>
-    </tr>
-    <tr>
-      <td>min</td>
-      <td>0.499900</td>
-      <td>0.149990</td>
-    </tr>
-    <tr>
-      <td>25%</td>
-      <td>2.563400</td>
-      <td>1.196000</td>
-    </tr>
-    <tr>
-      <td>50%</td>
-      <td>3.534800</td>
-      <td>1.797000</td>
-    </tr>
-    <tr>
-      <td>75%</td>
-      <td>4.743250</td>
-      <td>2.647250</td>
-    </tr>
-    <tr>
-      <td>max</td>
-      <td>15.000100</td>
-      <td>5.000010</td>
+      <td>0.688075</td>
+      <td>0.105623</td>
+      <td>0.151948</td>
+      <td>-0.046701</td>
+      <td>-0.024650</td>
+      <td>-0.023737</td>
+      <td>-0.144160</td>
+      <td>-0.045967</td>
+      <td>1.000000</td>
     </tr>
   </tbody>
 </table>
@@ -268,12 +191,121 @@ df[['MedInc', 'Target']].describe()
 
 ## Preprocessing: Removing Outliers and Scaling
 
+
+```python
+df[['MedInc', 'Target']].describe()[1:].style.highlight_max(axis=0)
+```
+
+
+
+
+<style  type="text/css" >
+    #T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col0 {
+            background-color:  yellow;
+        }    #T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col1 {
+            background-color:  yellow;
+        }</style><table id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MedInc</th>        <th class="col_heading level0 col1" >Target</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row0" class="row_heading level0 row0" >mean</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row0_col0" class="data row0 col0" >3.870671</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row0_col1" class="data row0 col1" >2.068558</td>
+            </tr>
+            <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row1" class="row_heading level0 row1" >std</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row1_col0" class="data row1 col0" >1.899822</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row1_col1" class="data row1 col1" >1.153956</td>
+            </tr>
+            <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row2" class="row_heading level0 row2" >min</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row2_col0" class="data row2 col0" >0.499900</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row2_col1" class="data row2 col1" >0.149990</td>
+            </tr>
+            <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row3" class="row_heading level0 row3" >25%</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row3_col0" class="data row3 col0" >2.563400</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row3_col1" class="data row3 col1" >1.196000</td>
+            </tr>
+            <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row4" class="row_heading level0 row4" >50%</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row4_col0" class="data row4 col0" >3.534800</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row4_col1" class="data row4 col1" >1.797000</td>
+            </tr>
+            <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row5" class="row_heading level0 row5" >75%</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row5_col0" class="data row5 col0" >4.743250</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row5_col1" class="data row5 col1" >2.647250</td>
+            </tr>
+            <tr>
+                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row6" class="row_heading level0 row6" >max</th>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col0" class="data row6 col0" >15.000100</td>
+                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col1" class="data row6 col1" >5.000010</td>
+            </tr>
+    </tbody></table>
+
+
+
 It seems that `Target` has some outliers (as well as `MedInc`), because 75% of the data has price less than 2.65, but maximum price go as high as 5. We're going to remove extremely expensive houses as they will add unnecessary noize to the data.
 
 
 ```python
-df = df[df.Target < 5]
+df = df[df.Target < 3.5]
+df = df[df.MedInc < 8]
 ```
+
+### Removed Outliers
+
+
+```python
+df[['MedInc', 'Target']].describe()[1:].style.highlight_max(axis=0)
+```
+
+
+
+
+<style  type="text/css" >
+    #T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col0 {
+            background-color:  yellow;
+        }    #T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col1 {
+            background-color:  yellow;
+        }</style><table id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MedInc</th>        <th class="col_heading level0 col1" >Target</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row0" class="row_heading level0 row0" >mean</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row0_col0" class="data row0 col0" >3.482030</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row0_col1" class="data row0 col1" >1.722805</td>
+            </tr>
+            <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row1" class="row_heading level0 row1" >std</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row1_col0" class="data row1 col0" >1.364922</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row1_col1" class="data row1 col1" >0.749957</td>
+            </tr>
+            <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row2" class="row_heading level0 row2" >min</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row2_col0" class="data row2 col0" >0.499900</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row2_col1" class="data row2 col1" >0.149990</td>
+            </tr>
+            <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row3" class="row_heading level0 row3" >25%</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row3_col0" class="data row3 col0" >2.452025</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row3_col1" class="data row3 col1" >1.119000</td>
+            </tr>
+            <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row4" class="row_heading level0 row4" >50%</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row4_col0" class="data row4 col0" >3.303600</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row4_col1" class="data row4 col1" >1.635000</td>
+            </tr>
+            <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row5" class="row_heading level0 row5" >75%</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row5_col0" class="data row5 col0" >4.346050</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row5_col1" class="data row5 col1" >2.256000</td>
+            </tr>
+            <tr>
+                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row6" class="row_heading level0 row6" >max</th>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col0" class="data row6 col0" >7.988700</td>
+                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col1" class="data row6 col1" >3.499000</td>
+            </tr>
+    </tbody></table>
+
+
 
 We will also scale `MedInc` and `Target` variables to [0-1].
 
@@ -300,7 +332,7 @@ X.max(), y.max() # features are scaled now
 
 
 
-## Correlative Between Price and Income
+## Correlation Between Price and Income
 
 Visually we can determine what kind of accuracy we can expect from the models.
 
@@ -319,7 +351,7 @@ plt.show()
 ```
 
 
-![png](images/1.png)
+![png](images/Gradient%20Descent_22_0.png)
 
 
 Data is quite sparse, but we can still observe some linearity.
@@ -328,7 +360,9 @@ Data is quite sparse, but we can still observe some linearity.
 
 Simple linear regression can be described by only two parameters: slope `m` and intercept `b`, where `x` is our **median income**. Lets take a look at the formulas below:
 
-![png](images/f1.png)
+# $$\hat{y} = mx + b$$
+
+### $$m = \frac{\overline{x}\overline{y}-\overline{xy}}{(\overline{x})^2 - \overline{x^2}} \quad \textrm{and} \quad  b = y-mx$$
 
 If we want to add some other features, like size of the apartment, our formula would look like this: $\hat{y} = m_1x_1 + m_2x_2 + b$, where $m_1$ and $m_2$ are slopes for each feature $x_1$ and $x_2$. In this case we would call it multiple linear regression, but we could no longer use formulas above.
 
@@ -365,7 +399,7 @@ def plot_regression(X, y, y_pred, log=None, title="Linear Regression"):
     plt.scatter(X, y, label='Data', c='#388fd8', s=6)
     if log != None:
         for i in range(len(log)):
-            plt.plot(X, log[i][0]*X + log[i][1], lw=1, c='#caa727', alpha=0.15)
+            plt.plot(X, log[i][0]*X + log[i][1], lw=1, c='#caa727', alpha=0.35)
     plt.plot(X, y_pred, c='#ff7702', lw=3, label='Regression')
     plt.title(title, fontSize=14)
     plt.xlabel('Income', fontSize=11)
@@ -402,11 +436,11 @@ print("MSE:",mean_squared_error(y, y_pred))
 plot_regression(X, y, y_pred, title="Linear Regression")
 ```
 
-    MSE: 0.5485962279736201
+    MSE: 0.34320521502255963
 
 
 
-![png](images/2.png)
+![png](images/Gradient%20Descent_35_1.png)
 
 
 Result of our model is the regression line. Just by looking at the graph we can tell that data points go well above and beyond our line, making predictions approximate.
@@ -415,7 +449,9 @@ Result of our model is the regression line. Just by looking at the graph we can 
 
 Similar to `from sklearn.linear_model import LinearRegression`, we can calculate coefficients with Least Squares method. Numpy can calculate this formula almost instantly (of course depends on the amount of data) and precise.
 
-![png](images/f2.png)
+## $$ m =(A^TA)^{-1} A^Ty $$
+
+### $$m - parameters, \: A - data, \: y - target$$
 
 
 ```python
@@ -468,7 +504,7 @@ mean_squared_error(y, y_pred)
 
 
 
-    0.46636186533484425
+    0.2912984534321039
 
 
 
@@ -479,7 +515,7 @@ mean_squared_error(y, y_pred)
 The idea behind gradient descent is simple - by gradually tuning parameters, such as slope (`m`) and the intercept (`b`) in our regression function `y = mx + b`, we minimize cost. 
 By cost, we usually mean some kind of a function that tells us how far off our model predicted result. For regression problems we often use `mean squared error` (MSE) cost function. If we use gradient descent for the classification problem, we will have a different set of parameters to tune.
 
-![png](images/f3.png)
+### $$ MSE = \frac{1}{n}\sum_{i=1}^{n} (y_i - \hat{y_i})^2 \quad \textrm{where} \quad \hat{y_i} = mx_i + b $$
 
 Now we have to figure out how to tweak parameters `m` and `b` to reduce MSE.
 
@@ -487,15 +523,19 @@ Now we have to figure out how to tweak parameters `m` and `b` to reduce MSE.
 
 We use partial derivatives to find how each individual parameter affects MSE, so that's where word _partial_ comes from. In simple words, we take the derivative with respect to `m` and `b` **separately**. Take a look at the formula below. It looks almost exactly the same as MSE, but this time we added f(m, b) to it. It essentially changes nothing, except now we can plug `m` and `b` numbers into it and calculate the result.
 
-![png](images/f4.png)
+### $$𝑓(𝑚,𝑏)= \frac{1}{n}\sum_{i=1}^{n}(y_i - (mx_i+b))^2$$
 
 This formula (or better say function) is better representation for further calculations of partial derivatives. We can ignore sum for now and what comes before that and focus only on $y - (mx + b)^2$.
 
-### Partial Derivative With Respect to `m`
+### Partical Derivative With Respect to `m`
 
 With respect to `m` means we derive parameter `m` and basically ignore what is going on with `b`, or we can say its 0. To derive with respect to `m` we will use chain rule.
 
-Chain rule applies when one function sits inside of another. If you're new to this, you'd be surprised that $()^2$ is outside function, and $y-(\boldsymbol{m}x+b)$ sits inside it. So, the chain rule says that we should take a derivative of outside function, multiply it by inside function and then multiply by derivative of the inside function. Lets write these steps down:
+# $$ [f(g(x))]' = f'(g(x)) * g(x)' \: - \textrm{chain rule}$$
+
+Chain rule applies when one function sits inside of another. If you're new to this, you'd be surprised that $()^2$ is outside function, and $y-(\boldsymbol{m}x+b)$ sits inside it. So, the chain rule says that we should take a derivative of outside function, keep inside function unchanged and then multiply by derivative of the inside function. Lets write these steps down:
+
+# $$ (y - (mx + b))^2 $$
 
  1. Derivative of $()^2$ is $2()$, same as $x^2$ becomes $2x$
  2. We do nothing with $y - (mx + b)$, so it stays the same
@@ -504,11 +544,11 @@ Chain rule applies when one function sits inside of another. If you're new to th
 Multiply all parts we get following: $2 * (y - (mx+b)) * -x$. 
 Looks nicer if we move -x to the left: $-2x *(y-(mx+b))$. There we have it. The final version of our derivative is the following:
 
-![png](images/f5.png)
+### $$\frac{\partial f}{\partial m} = \frac{1}{n}\sum_{i=1}^{n}-2x_i(y_i - (mx_i+b))$$
 
 Here, $\frac{df}{dm}$ means we find partial derivative of function f (we mentioned it earlier) with respect to m. We plug our derivative to the summation and we're done.
 
-### Partial Derivative With Respect to `b`
+### Partical Derivative With Respect to `b`
 
 Same rules apply to the derivative with respect to b.
 
@@ -518,16 +558,16 @@ Same rules apply to the derivative with respect to b.
 
 Multiply all the parts together and we get $-2(y-(mx+b))$
 
-![png](images/f6.png)
-
-The hardest part is over, now we can code our functions in Python.
+### $$\frac{\partial f}{\partial b} = \frac{1}{n}\sum_{i=1}^{n}-2(y_i - (mx_i+b))$$
 
 ### Final Function
 
 Few details we should discuss befor jumping into code:
-1. Gradient descent is an iterative process and with each iteration (`epoch`) we slightly minimizing MSE
-2. Because its iterative, we should choose how many iterations we take, or make algorithm stop when we approach minima of MSE
-3. Gradient descent has additional parameter learning rate (`lr`), which helps control how fast or slow algorithm going towards minima of MSE
+1. Gradient descent is an iterative process and with each iteration (`epoch`) we slightly minimizing MSE, so each time we use our derived functions to update parameters `m` and `b`
+2. Because its iterative, we should choose how many iterations we take, or make algorithm stop when we approach minima of MSE. In other words when algorithm is no longer improving MSE, we know it reached minimum.
+3. Gradient descent has an additional parameter learning rate (`lr`), which helps control how fast or slow algorithm going towards minima of MSE
+
+Thats about it. So you can already understand that Gradient Descent for the most part is just process of taking derivatives and using them over and over to minimize function.
 
 
 ```python
@@ -578,15 +618,15 @@ plt.ylabel('MSE')
 plt.show()
 ```
 
-    MSE: 0.5518154158607774
+    MSE: 0.3493097403876614
 
 
 
-![png](images/3.png)
+![png](images/Gradient%20Descent_73_1.png)
 
 
 
-![png](images/4.png)
+![png](images/Gradient%20Descent_73_2.png)
 
 
 ## Stochastic Gradient Descent
@@ -645,15 +685,15 @@ plt.ylabel('MSE', fontSize=11)
 plt.show()
 ```
 
-    MSE: 0.5504648912075815
+    MSE: 0.3462919845446769
 
 
 
-![png](images/5.png)
+![png](images/Gradient%20Descent_78_1.png)
 
 
 
-![png](images/6.png)
+![png](images/Gradient%20Descent_78_2.png)
 
 
 We can observe how regression line went up and down to find right parameters and MSE not as smooth as regular gradient descent.
@@ -680,7 +720,7 @@ X.shape, y.shape
 
 
 
-    ((334016,), (334016,))
+    ((304946,), (304946,))
 
 
 
@@ -689,7 +729,7 @@ X.shape, y.shape
 %timeit SGD(X, y, lr=0.01, epoch=1000, batch_size=1)
 ```
 
-    1.32 s ± 102 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    1.22 s ± 8.95 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 
@@ -697,7 +737,7 @@ X.shape, y.shape
 %timeit gradient_descent(X, y, lr=0.01, epoch=1000)
 ```
 
-    2.14 s ± 168 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    2.02 s ± 79.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 ## Conclusion
