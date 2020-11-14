@@ -193,54 +193,73 @@ df.corr()
 
 
 ```python
-df[['MedInc', 'Target']].describe()[1:].style.highlight_max(axis=0)
+df[['MedInc', 'Target']].describe()[1:] #.style.highlight_max(axis=0)
 ```
 
 
 
 
-<style  type="text/css" >
-    #T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col0 {
-            background-color:  yellow;
-        }    #T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col1 {
-            background-color:  yellow;
-        }</style><table id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MedInc</th>        <th class="col_heading level0 col1" >Target</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row0" class="row_heading level0 row0" >mean</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row0_col0" class="data row0 col0" >3.870671</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row0_col1" class="data row0 col1" >2.068558</td>
-            </tr>
-            <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row1" class="row_heading level0 row1" >std</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row1_col0" class="data row1 col0" >1.899822</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row1_col1" class="data row1 col1" >1.153956</td>
-            </tr>
-            <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row2" class="row_heading level0 row2" >min</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row2_col0" class="data row2 col0" >0.499900</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row2_col1" class="data row2 col1" >0.149990</td>
-            </tr>
-            <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row3" class="row_heading level0 row3" >25%</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row3_col0" class="data row3 col0" >2.563400</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row3_col1" class="data row3 col1" >1.196000</td>
-            </tr>
-            <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row4" class="row_heading level0 row4" >50%</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row4_col0" class="data row4 col0" >3.534800</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row4_col1" class="data row4 col1" >1.797000</td>
-            </tr>
-            <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row5" class="row_heading level0 row5" >75%</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row5_col0" class="data row5 col0" >4.743250</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row5_col1" class="data row5 col1" >2.647250</td>
-            </tr>
-            <tr>
-                        <th id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12level0_row6" class="row_heading level0 row6" >max</th>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col0" class="data row6 col0" >15.000100</td>
-                        <td id="T_4ed9fed2_268e_11eb_a84d_a683e7866c12row6_col1" class="data row6 col1" >5.000010</td>
-            </tr>
-    </tbody></table>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>3.482030</td>
+      <td>1.722805</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.364922</td>
+      <td>0.749957</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.499900</td>
+      <td>0.149990</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.452025</td>
+      <td>1.119000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.303600</td>
+      <td>1.635000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.346050</td>
+      <td>2.256000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.988700</td>
+      <td>3.499000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
@@ -256,54 +275,73 @@ df = df[df.MedInc < 8]
 
 
 ```python
-df[['MedInc', 'Target']].describe()[1:].style.highlight_max(axis=0)
+df[['MedInc', 'Target']].describe()[1:]
 ```
 
 
 
 
-<style  type="text/css" >
-    #T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col0 {
-            background-color:  yellow;
-        }    #T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col1 {
-            background-color:  yellow;
-        }</style><table id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >MedInc</th>        <th class="col_heading level0 col1" >Target</th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row0" class="row_heading level0 row0" >mean</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row0_col0" class="data row0 col0" >3.482030</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row0_col1" class="data row0 col1" >1.722805</td>
-            </tr>
-            <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row1" class="row_heading level0 row1" >std</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row1_col0" class="data row1 col0" >1.364922</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row1_col1" class="data row1 col1" >0.749957</td>
-            </tr>
-            <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row2" class="row_heading level0 row2" >min</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row2_col0" class="data row2 col0" >0.499900</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row2_col1" class="data row2 col1" >0.149990</td>
-            </tr>
-            <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row3" class="row_heading level0 row3" >25%</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row3_col0" class="data row3 col0" >2.452025</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row3_col1" class="data row3 col1" >1.119000</td>
-            </tr>
-            <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row4" class="row_heading level0 row4" >50%</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row4_col0" class="data row4 col0" >3.303600</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row4_col1" class="data row4 col1" >1.635000</td>
-            </tr>
-            <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row5" class="row_heading level0 row5" >75%</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row5_col0" class="data row5 col0" >4.346050</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row5_col1" class="data row5 col1" >2.256000</td>
-            </tr>
-            <tr>
-                        <th id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12level0_row6" class="row_heading level0 row6" >max</th>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col0" class="data row6 col0" >7.988700</td>
-                        <td id="T_63bbd9b0_268e_11eb_a84d_a683e7866c12row6_col1" class="data row6 col1" >3.499000</td>
-            </tr>
-    </tbody></table>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MedInc</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>3.482030</td>
+      <td>1.722805</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.364922</td>
+      <td>0.749957</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.499900</td>
+      <td>0.149990</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.452025</td>
+      <td>1.119000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.303600</td>
+      <td>1.635000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.346050</td>
+      <td>2.256000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.988700</td>
+      <td>3.499000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
